@@ -1,14 +1,14 @@
-%define		kdeplasmaver	5.11.2
+%define		kdeplasmaver	5.14.4
 %define		qtver		5.4.0
 %define		kpname		kactivitymanagerd
 Summary:	kactivitymanagerd
 Name:		kp5-%{kpname}
-Version:	5.11.2
+Version:	5.14.4
 Release:	1
 License:	GPL v2+/LGPL v2.1+
 Group:		X11/Libraries
 Source0:	http://download.kde.org/stable/plasma/%{kdeplasmaver}/%{kpname}-%{version}.tar.xz
-# Source0-md5:	9a9a6b0ef0e9d8740755c2efb3797091
+# Source0-md5:	d2ef43f119c8afa91745092f649205ff
 URL:		http://www.kde.org/
 BuildRequires:	Qt5Core-devel >= %{qtver}
 BuildRequires:	Qt5Gui-devel >= %{qtver}
@@ -66,3 +66,4 @@ rm -rf $RPM_BUILD_ROOT
 %{_libdir}/qt5/plugins/kactivitymanagerd/1/kactivitymanagerd_plugin_virtualdesktopswitch.so
 %{_datadir}/kservices5/kactivitymanagerd.desktop
 %{_datadir}/kservicetypes5/kactivitymanagerd-plugin.desktop
+%{_datadir}/dbus-1/services/org.kde.activitymanager.service
