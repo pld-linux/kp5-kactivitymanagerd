@@ -1,14 +1,14 @@
-%define		kdeplasmaver	5.14.4
-%define		qtver		5.4.0
+%define		kdeplasmaver	5.14.5
+%define		qtver		5.9.0
 %define		kpname		kactivitymanagerd
 Summary:	kactivitymanagerd
 Name:		kp5-%{kpname}
-Version:	5.14.4
+Version:	5.14.5
 Release:	1
 License:	GPL v2+/LGPL v2.1+
 Group:		X11/Libraries
 Source0:	http://download.kde.org/stable/plasma/%{kdeplasmaver}/%{kpname}-%{version}.tar.xz
-# Source0-md5:	d2ef43f119c8afa91745092f649205ff
+# Source0-md5:	13590181ba9a0dce8c7310e98f2834a9
 URL:		http://www.kde.org/
 BuildRequires:	Qt5Core-devel >= %{qtver}
 BuildRequires:	Qt5Gui-devel >= %{qtver}
@@ -28,7 +28,7 @@ BuildRequires:	xz
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
-kactivitymanagerd
+System service to manage user's activities, track the usage patterns etc.
 
 %prep
 %setup -q -n %{kpname}-%{version}
