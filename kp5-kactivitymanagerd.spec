@@ -10,17 +10,24 @@ Group:		X11/Libraries
 Source0:	http://download.kde.org/stable/plasma/%{kdeplasmaver}/%{kpname}-%{version}.tar.xz
 # Source0-md5:	242dbc1fc363e90dad8350c9138918c3
 URL:		http://www.kde.org/
+BuildRequires:	boost-devel
+BuildRequires:	Qt5Concurrent-devel
 BuildRequires:	Qt5Core-devel >= %{qtver}
 BuildRequires:	Qt5Gui-devel >= %{qtver}
+BuildRequires:	Qt5Sql-devel >= %{qtver}
 BuildRequires:	Qt5Widgets-devel >= %{qtver}
 BuildRequires:	Qt5X11Extras-devel >= %{qtver}
 BuildRequires:	cmake >= 2.8.12
 BuildRequires:	gettext-devel
 BuildRequires:	kf5-extra-cmake-modules >= 1.4.0
+BuildRequires:	kf5-kdbusaddons-devel
 BuildRequires:	kf5-kdelibs4support-devel
 BuildRequires:	kf5-kdoctools-devel
+BuildRequires:	kf5-kglobalaccel-devel
 BuildRequires:	kf5-khtml-devel
+BuildRequires:	kf5-kwindowsystem-devel
 BuildRequires:	ninja
+BuildRequires:	qt5-qmake
 BuildRequires:	qt5-build >= %{qtver}
 BuildRequires:	rpmbuild(macros) >= 1.164
 BuildRequires:	tar >= 1:1.22
