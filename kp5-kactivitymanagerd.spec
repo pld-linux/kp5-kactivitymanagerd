@@ -1,22 +1,22 @@
-%define		kdeplasmaver	5.15.3
+%define		kdeplasmaver	5.21.2
 %define		qtver		5.9.0
 %define		kpname		kactivitymanagerd
 Summary:	kactivitymanagerd
 Name:		kp5-%{kpname}
-Version:	5.15.3
+Version:	5.21.2
 Release:	1
 License:	GPL v2+/LGPL v2.1+
 Group:		X11/Libraries
 Source0:	http://download.kde.org/stable/plasma/%{kdeplasmaver}/%{kpname}-%{version}.tar.xz
-# Source0-md5:	242dbc1fc363e90dad8350c9138918c3
+# Source0-md5:	c1b37c4d2ada7a9eb3468a3a68e94037
 URL:		http://www.kde.org/
-BuildRequires:	boost-devel
 BuildRequires:	Qt5Concurrent-devel
 BuildRequires:	Qt5Core-devel >= %{qtver}
 BuildRequires:	Qt5Gui-devel >= %{qtver}
 BuildRequires:	Qt5Sql-devel >= %{qtver}
 BuildRequires:	Qt5Widgets-devel >= %{qtver}
 BuildRequires:	Qt5X11Extras-devel >= %{qtver}
+BuildRequires:	boost-devel
 BuildRequires:	cmake >= 2.8.12
 BuildRequires:	gettext-devel
 BuildRequires:	kf5-extra-cmake-modules >= 1.4.0
@@ -27,8 +27,8 @@ BuildRequires:	kf5-kglobalaccel-devel
 BuildRequires:	kf5-khtml-devel
 BuildRequires:	kf5-kwindowsystem-devel
 BuildRequires:	ninja
-BuildRequires:	qt5-qmake
 BuildRequires:	qt5-build >= %{qtver}
+BuildRequires:	qt5-qmake
 BuildRequires:	rpmbuild(macros) >= 1.164
 BuildRequires:	tar >= 1:1.22
 BuildRequires:	xorg-lib-libX11-devel
@@ -36,7 +36,8 @@ BuildRequires:	xz
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
-System service to manage user's activities, track the usage patterns etc.
+System service to manage user's activities, track the usage patterns
+etc.
 
 %prep
 %setup -q -n %{kpname}-%{version}
@@ -64,14 +65,16 @@ rm -rf $RPM_BUILD_ROOT
 %{_libdir}/libkactivitymanagerd_plugin.so
 %dir %{_libdir}/qt5/plugins/kactivitymanagerd
 %dir %{_libdir}/qt5/plugins/kactivitymanagerd/1
-%{_libdir}/qt5/plugins/kactivitymanagerd/1/kactivitymanagerd_plugin_activitytemplates.so
-%{_libdir}/qt5/plugins/kactivitymanagerd/1/kactivitymanagerd_plugin_eventspy.so
-%{_libdir}/qt5/plugins/kactivitymanagerd/1/kactivitymanagerd_plugin_globalshortcuts.so
-%{_libdir}/qt5/plugins/kactivitymanagerd/1/kactivitymanagerd_plugin_runapplication.so
-%{_libdir}/qt5/plugins/kactivitymanagerd/1/kactivitymanagerd_plugin_slc.so
-%{_libdir}/qt5/plugins/kactivitymanagerd/1/kactivitymanagerd_plugin_sqlite.so
-%{_libdir}/qt5/plugins/kactivitymanagerd/1/kactivitymanagerd_plugin_virtualdesktopswitch.so
+%attr(755,root,root) %{_libdir}/qt5/plugins/kactivitymanagerd/1/kactivitymanagerd_plugin_activitytemplates.so
+%attr(755,root,root) %{_libdir}/qt5/plugins/kactivitymanagerd/1/kactivitymanagerd_plugin_eventspy.so
+%attr(755,root,root) %{_libdir}/qt5/plugins/kactivitymanagerd/1/kactivitymanagerd_plugin_globalshortcuts.so
+%attr(755,root,root) %{_libdir}/qt5/plugins/kactivitymanagerd/1/kactivitymanagerd_plugin_runapplication.so
+%attr(755,root,root) %{_libdir}/qt5/plugins/kactivitymanagerd/1/kactivitymanagerd_plugin_slc.so
+%attr(755,root,root) %{_libdir}/qt5/plugins/kactivitymanagerd/1/kactivitymanagerd_plugin_sqlite.so
+%attr(755,root,root) %{_libdir}/qt5/plugins/kactivitymanagerd/1/kactivitymanagerd_plugin_virtualdesktopswitch.so
 %{_datadir}/kservices5/kactivitymanagerd.desktop
 %{_datadir}/kservicetypes5/kactivitymanagerd-plugin.desktop
-%{_datadir}/dbus-1/services/org.kde.activitymanager.service
-/etc/xdg/kactivitymanagerd.categories
+%{systemduserunitdir}/plasma-kactivitymanagerd.service
+%attr(755,root,root) %{_libdir}/qt5/plugins/kactivitymanagerd/1/kactivitymanagerd_plugin_gtk_eventspy.so
+%{_datadir}/dbus-1/services/org.kde.ActivityManager.service
+%{_datadir}/qlogging-categories5/kactivitymanagerd.categories
