@@ -1,14 +1,14 @@
-%define		kdeplasmaver	5.23.1
+%define		kdeplasmaver	5.23.2
 %define		qtver		5.9.0
 %define		kpname		kactivitymanagerd
 Summary:	kactivitymanagerd
 Name:		kp5-%{kpname}
-Version:	5.23.1
+Version:	5.23.2
 Release:	1
 License:	GPL v2+/LGPL v2.1+
 Group:		X11/Libraries
 Source0:	http://download.kde.org/stable/plasma/%{kdeplasmaver}/%{kpname}-%{version}.tar.xz
-# Source0-md5:	f96f611119d551399297074fc1f882f9
+# Source0-md5:	2fc8cd39a7a12a693f081b2f2aff48c2
 URL:		http://www.kde.org/
 BuildRequires:	Qt5Concurrent-devel
 BuildRequires:	Qt5Core-devel >= %{qtver}
