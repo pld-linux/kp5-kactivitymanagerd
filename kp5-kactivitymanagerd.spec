@@ -1,14 +1,17 @@
-%define		kdeplasmaver	5.24.3
+#
+# Conditional build:
+%bcond_with	tests		# build with tests
+%define		kdeplasmaver	5.24.4
 %define		qtver		5.9.0
 %define		kpname		kactivitymanagerd
 Summary:	kactivitymanagerd
 Name:		kp5-%{kpname}
-Version:	5.24.3
+Version:	5.24.4
 Release:	1
 License:	GPL v2+/LGPL v2.1+
 Group:		X11/Libraries
 Source0:	http://download.kde.org/stable/plasma/%{kdeplasmaver}/%{kpname}-%{version}.tar.xz
-# Source0-md5:	8034240189f5524c3c9299ccc3d84c6d
+# Source0-md5:	afa09cc76f434b2906ab4396be739bb8
 URL:		http://www.kde.org/
 BuildRequires:	Qt5Concurrent-devel
 BuildRequires:	Qt5Core-devel >= %{qtver}
@@ -46,9 +49,14 @@ etc.
 install -d build
 cd build
 %cmake -G Ninja \
+	%{!?with_tests:-DBUILD_TESTING=OFF} \
 	-DKDE_INSTALL_USE_QT_SYS_PATHS=ON \
 	..
 %ninja_build
+
+%if %{with tests}
+ctest
+%endif
 
 %install
 rm -rf $RPM_BUILD_ROOT
