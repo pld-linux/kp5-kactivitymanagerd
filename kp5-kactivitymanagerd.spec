@@ -1,17 +1,17 @@
 #
 # Conditional build:
 %bcond_with	tests		# build with tests
-%define		kdeplasmaver	5.25.5
+%define		kdeplasmaver	5.26.0
 %define		qtver		5.15.2
 %define		kpname		kactivitymanagerd
 Summary:	kactivitymanagerd
 Name:		kp5-%{kpname}
-Version:	5.25.5
-Release:	2
+Version:	5.26.0
+Release:	1
 License:	GPL v2+/LGPL v2.1+
 Group:		X11/Libraries
 Source0:	https://download.kde.org/stable/plasma/%{kdeplasmaver}/%{kpname}-%{version}.tar.xz
-# Source0-md5:	04349eb33c307e28bba15cba930927f1
+# Source0-md5:	b83cd28bf624234f33d05fdd1819ce1c
 URL:		http://www.kde.org/
 BuildRequires:	Qt5Concurrent-devel
 BuildRequires:	Qt5Core-devel >= %{qtver}
@@ -81,7 +81,6 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_libdir}/qt5/plugins/kactivitymanagerd/1/kactivitymanagerd_plugin_sqlite.so
 %attr(755,root,root) %{_libdir}/qt5/plugins/kactivitymanagerd/1/kactivitymanagerd_plugin_virtualdesktopswitch.so
 %{_datadir}/kservices5/kactivitymanagerd.desktop
-%{_datadir}/kservicetypes5/kactivitymanagerd-plugin.desktop
 %{systemduserunitdir}/plasma-kactivitymanagerd.service
 %attr(755,root,root) %{_libdir}/qt5/plugins/kactivitymanagerd/1/kactivitymanagerd_plugin_gtk_eventspy.so
 %{_datadir}/dbus-1/services/org.kde.ActivityManager.service
