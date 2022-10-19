@@ -1,17 +1,17 @@
 #
 # Conditional build:
 %bcond_with	tests		# build with tests
-%define		kdeplasmaver	5.26.0
+%define		kdeplasmaver	5.26.1
 %define		qtver		5.15.2
 %define		kpname		kactivitymanagerd
 Summary:	kactivitymanagerd
 Name:		kp5-%{kpname}
-Version:	5.26.0
+Version:	5.26.1
 Release:	1
 License:	GPL v2+/LGPL v2.1+
 Group:		X11/Libraries
 Source0:	https://download.kde.org/stable/plasma/%{kdeplasmaver}/%{kpname}-%{version}.tar.xz
-# Source0-md5:	b83cd28bf624234f33d05fdd1819ce1c
+# Source0-md5:	da6badecd0e129347b6bbb5561ed66d0
 URL:		http://www.kde.org/
 BuildRequires:	Qt5Concurrent-devel
 BuildRequires:	Qt5Core-devel >= %{qtver}
